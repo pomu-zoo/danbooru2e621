@@ -24,9 +24,14 @@ with open(DICT_FILE, 'r') as f:
     dict_file = []
     reader = csv.DictReader(f, fieldnames=['name', 'type', 'postCount', 'aliases'])
     for row in reader:
-        # invalid_tagの除外
+        # invalid_tag, female, maleの除外
         if row['name'] == 'invalid_tag':
             continue
+        if row['name'] == 'female':
+            continue
+        if row['name'] == 'male':
+            continue
+        # 'aliases'に値が存在する場合のみ'name'と'aliases'を代入
         # 'aliases'に値が存在する場合のみ'name'と'aliases'を代入
         else:
             if len(row['aliases']) != 0:
@@ -58,7 +63,7 @@ for caption_file in caption_files:
     caption_str = ', '.join(caption_list2)
     caption_result = caption_str \
         .replace('sep1,', '|||') \
-        .replace('sep3,', '|||') \
+        .replace('sep2,', '|||') \
         .replace('_', ' ')
     # caption_fileを上書き
     with open(caption_file, 'w') as f:
