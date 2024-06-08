@@ -1,4 +1,4 @@
-# danbooru_to_e621
+# danbooru2e621
 Transrate caption file's danbooru tags to e621 tags.
 
 csv files from DominikDoom/a1111-sd-webui-tagcomplete
